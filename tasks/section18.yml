@@ -728,59 +728,59 @@
     - rule_18.5.19.2.1
     - patch
 
-# - name: "SCORED | 18.5.20.1 | PATCH | L2 Ensure Configuration of wireless settings using Windows Connect Now is set to Disabled"
-#   block:
-#     - name: "SCORED | 18.5.20.1 | PATCH | L2 Ensure Configuration of wireless settings using Windows Connect Now is set to Disabled | EnableRegistrars"
-#       win_regedit:
-#         path: HKLM:\Software\Policies\Microsoft\Windows\Wcn\Registrars
-#         name: EnableRegistrars
-#         data: 0
-#         type: dword
+- name: "SCORED | 18.5.20.1 | PATCH | L2 Ensure Configuration of wireless settings using Windows Connect Now is set to Disabled"
+  block:
+    - name: "SCORED | 18.5.20.1 | PATCH | L2 Ensure Configuration of wireless settings using Windows Connect Now is set to Disabled | EnableRegistrars"
+      win_regedit:
+        path: HKLM:\Software\Policies\Microsoft\Windows\Wcn\Registrars
+        name: EnableRegistrars
+        data: 0
+        type: dword
 
-#     - name: "SCORED | 18.5.20.1 | PATCH | L2 Ensure Configuration of wireless settings using Windows Connect Now is set to Disabled | DisableUPnPRegistrar"
-#       win_regedit:
-#         path: HKLM:\Software\Policies\Microsoft\Windows\Wcn\Registrars
-#         name: DisableUPnPRegistrar
-#         data: 0
-#         type: dword
+    - name: "SCORED | 18.5.20.1 | PATCH | L2 Ensure Configuration of wireless settings using Windows Connect Now is set to Disabled | DisableUPnPRegistrar"
+      win_regedit:
+        path: HKLM:\Software\Policies\Microsoft\Windows\Wcn\Registrars
+        name: DisableUPnPRegistrar
+        data: 0
+        type: dword
 
-#     - name: "SCORED | 18.5.20.1 | PATCH | L2 Ensure Configuration of wireless settings using Windows Connect Now is set to Disabled | DisableInBand802DOT11Registrar"
-#       win_regedit:
-#         path: HKLM:\Software\Policies\Microsoft\Windows\Wcn\Registrars
-#         name: DisableInBand802DOT11Registrar
-#         data: 0
-#         type: dword
+    - name: "SCORED | 18.5.20.1 | PATCH | L2 Ensure Configuration of wireless settings using Windows Connect Now is set to Disabled | DisableInBand802DOT11Registrar"
+      win_regedit:
+        path: HKLM:\Software\Policies\Microsoft\Windows\Wcn\Registrars
+        name: DisableInBand802DOT11Registrar
+        data: 0
+        type: dword
 
-#     - name: "SCORED | 18.5.20.1 | PATCH | L2 Ensure Configuration of wireless settings using Windows Connect Now is set to Disabled | DisableFlashConfigRegistrar"
-#       win_regedit:
-#         path: HKLM:\Software\Policies\Microsoft\Windows\Wcn\Registrars
-#         name: DisableFlashConfigRegistrar
-#         data: 0
-#         type: dword
+    - name: "SCORED | 18.5.20.1 | PATCH | L2 Ensure Configuration of wireless settings using Windows Connect Now is set to Disabled | DisableFlashConfigRegistrar"
+      win_regedit:
+        path: HKLM:\Software\Policies\Microsoft\Windows\Wcn\Registrars
+        name: DisableFlashConfigRegistrar
+        data: 0
+        type: dword
 
-#     - name: "SCORED | 18.5.20.1 | PATCH | L2 Ensure Configuration of wireless settings using Windows Connect Now is set to Disabled | DisableWPDRegistrar"
-#       win_regedit:
-#         path: HKLM:\Software\Policies\Microsoft\Windows\Wcn\Registrars
-#         name: DisableWPDRegistrar
-#         data: 0
-#         type: dword
-#   when: rule_18_5_20_1
-#   tags:
-#     - level2
-#     - rule_18.5.20.1
-#     - patch
+    - name: "SCORED | 18.5.20.1 | PATCH | L2 Ensure Configuration of wireless settings using Windows Connect Now is set to Disabled | DisableWPDRegistrar"
+      win_regedit:
+        path: HKLM:\Software\Policies\Microsoft\Windows\Wcn\Registrars
+        name: DisableWPDRegistrar
+        data: 0
+        type: dword
+  when: rule_18_5_20_1
+  tags:
+    - level2
+    - rule_18.5.20.1
+    - patch
 
-# - name: "SCORED | 18.5.20.2 | PATCH | L2 Ensure Prohibit access of the Windows Connect Now wizards is set to Enabled"
-#   win_regedit:
-#     path: HKLM:\Software\Policies\Microsoft\Windows\Wcn\Ui
-#     name: DisableWcnUi
-#     data: 1
-#     type: dword
-#   when: rule_18_5_20_2
-#   tags:
-#     - level2
-#     - rule_18.5.20.2
-#     - patch
+- name: "SCORED | 18.5.20.2 | PATCH | L2 Ensure Prohibit access of the Windows Connect Now wizards is set to Enabled"
+  win_regedit:
+    path: HKLM:\Software\Policies\Microsoft\Windows\Wcn\Ui
+    name: DisableWcnUi
+    data: 1
+    type: dword
+  when: rule_18_5_20_2
+  tags:
+    - level2
+    - rule_18.5.20.2
+    - patch
 
 # - name: "SCORED | 18.5.21.1 | PATCH | L1 Ensure Minimize the number of simultaneous connections to the Internet or a Windows Domain is set to Enabled"
 #   win_regedit:
