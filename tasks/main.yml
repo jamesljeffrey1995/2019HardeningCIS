@@ -54,11 +54,11 @@
   tags:
       - section17
 
-# - name: Execute the section 18 tasks
-#   import_tasks: section18.yml
-#   when: section18_patch | bool
-#   tags:
-#       - section18
+- name: Execute the section 18 tasks
+  import_tasks: section18.yml
+  when: section18_patch | bool
+  tags:
+      - section18
 
 # - name: Execute the section 19 tasks
 #   import_tasks: section19.yml
