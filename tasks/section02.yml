@@ -609,19 +609,19 @@
     - rule_2.2.48
     - patch
 
-- name: "SCORED | 2.3.1.1 | PATCH | L1 Ensure Accounts Administrator account status is set to Disabled MS only"
-  win_security_policy:
-    section: System Access
-    key: EnableAdminAccount
-    value: 0
-  when:
-    - rule_2_3_1_1
-    - not ansible_windows_domain_role == "Primary domain controller"
-  tags:
-    - level1
-    - level2
-    - rule_2.3.1.1
-    - patch
+# - name: "SCORED | 2.3.1.1 | PATCH | L1 Ensure Accounts Administrator account status is set to Disabled MS only"
+#   win_security_policy:
+#     section: System Access
+#     key: EnableAdminAccount
+#     value: 0
+#   when:
+#     - rule_2_3_1_1
+#     - not ansible_windows_domain_role == "Primary domain controller"
+#   tags:
+#     - level1
+#     - level2
+#     - rule_2.3.1.1
+#     - patch
 
 - name: "SCORED | 2.3.1.2 | PATCH | L1 Ensure Accounts Block Microsoft accounts is set to Users cant add or log on with Microsoft accounts"
   win_regedit:
@@ -661,31 +661,31 @@
     - rule_2.3.1.4
     - patch
 
-- name: "SCORED | 2.3.1.5 | PATCH | L1 Configure Accounts Rename administrator account"
-  win_security_policy:
-    section: System Access
-    key: newadministratorname
-    value: GeorgeSharp
-  when:
-    - rule_2_3_1_5
-    - not win_skip_for_test
-  tags:
-    - level1
-    - level2
-    - rule_2.3.1.5
-    - patch
+# - name: "SCORED | 2.3.1.5 | PATCH | L1 Configure Accounts Rename administrator account"
+#   win_security_policy:
+#     section: System Access
+#     key: newadministratorname
+#     value: GeorgeSharp
+#   when:
+#     - rule_2_3_1_5
+#     - not win_skip_for_test
+#   tags:
+#     - level1
+#     - level2
+#     - rule_2.3.1.5
+#     - patch
 
-- name: "SCORED | 2.3.1.6 | PATCH | L1 Configure Accounts Rename guest account"
-  win_security_policy:
-    section: System Access
-    key: NewGuestName
-    value: BobCooper
-  when: rule_2_3_1_6
-  tags:
-    - level1
-    - level2
-    - rule_2.3.1.6
-    - patch
+# - name: "SCORED | 2.3.1.6 | PATCH | L1 Configure Accounts Rename guest account"
+#   win_security_policy:
+#     section: System Access
+#     key: NewGuestName
+#     value: BobCooper
+#   when: rule_2_3_1_6
+#   tags:
+#     - level1
+#     - level2
+#     - rule_2.3.1.6
+#     - patch
 
 - name: "SCORED | 2.3.2.1 | PATCH | L1 Ensure Audit Force audit policy subcategory settings Windows Vista or later to override audit policy category settings is set to Enabled"
   win_regedit:
