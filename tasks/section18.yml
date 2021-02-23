@@ -795,19 +795,19 @@
     - rule_18.5.21.1
     - patch
 
-# - name: "SCORED | 18.5.21.2 | PATCH | L2 Ensure Prohibit connection to non-domain networks when connected to domain authenticated network is set to Enabled MS only"
-#   win_regedit:
-#     path: HKLM:\Software\Policies\Microsoft\Windows\Wcmsvc\Grouppolicy
-#     name: fBlockNonDomain
-#     data: 1
-#     type: dword
-#   when:
-#     - rule_18_5_21_2
-#     - not ansible_windows_domain_role == "Primary domain controller"
-#   tags:
-#     - level2
-#     - rule_18.5.21.2
-#     - patch
+- name: "SCORED | 18.5.21.2 | PATCH | L2 Ensure Prohibit connection to non-domain networks when connected to domain authenticated network is set to Enabled MS only"
+  win_regedit:
+    path: HKLM:\Software\Policies\Microsoft\Windows\Wcmsvc\Grouppolicy
+    name: fBlockNonDomain
+    data: 1
+    type: dword
+  when:
+    - rule_18_5_21_2
+    - not ansible_windows_domain_role == "Primary domain controller"
+  tags:
+    - level2
+    - rule_18.5.21.2
+    - patch
 
 - name: "SCORED | 18.7.1.1 | PATCH | L2 Ensure Turn off notifications network usage is set to Enabled" #this needs to be done
   win_regedit:
