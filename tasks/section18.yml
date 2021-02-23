@@ -695,38 +695,38 @@
     - rule_18.5.11.4
     - patch
 
-# - name: "SCORED | 18.5.14.1 | PATCH | L1 Ensure Hardened UNC Paths is set to Enabled with Require Mutual Authentication and Require Integrity set for all NETLOGON and SYSVOL shares"
-#   block:
-#     - name: "SCORED | 18.5.14.1 | PATCH | L1 Ensure Hardened UNC Paths is set to Enabled with Require Mutual Authentication and Require Integrity set for all NETLOGON shares"
-#       win_regedit:
-#         path: HKLM:\Software\Policies\Microsoft\Windows\Networkprovider\Hardenedpaths
-#         name: "\\\\*\\NETLOGON"
-#         data: "RequireMutualAuthentication=1, RequireIntegrity=1"
-#         type: string
-#     - name: "SCORED | 18.5.14.1 | PATCH | L1 Ensure Hardened UNC Paths is set to Enabled with Require Mutual Authentication and Require Integrity set for all SYSVOL shares"
-#       win_regedit:
-#         path: HKLM:\Software\Policies\Microsoft\Windows\Networkprovider\Hardenedpaths
-#         name: "\\\\*\\SYSVOL"
-#         data: "RequireMutualAuthentication=1, RequireIntegrity=1"
-#         type: string
-#   when: rule_18_5_14_1
-#   tags:
-#     - level1
-#     - level2
-#     - rule_18.5.14.1
-#     - patch
+- name: "SCORED | 18.5.14.1 | PATCH | L1 Ensure Hardened UNC Paths is set to Enabled with Require Mutual Authentication and Require Integrity set for all NETLOGON and SYSVOL shares"
+  block:
+    - name: "SCORED | 18.5.14.1 | PATCH | L1 Ensure Hardened UNC Paths is set to Enabled with Require Mutual Authentication and Require Integrity set for all NETLOGON shares"
+      win_regedit:
+        path: HKLM:\Software\Policies\Microsoft\Windows\Networkprovider\Hardenedpaths
+        name: "\\\\*\\NETLOGON"
+        data: "RequireMutualAuthentication=1, RequireIntegrity=1"
+        type: string
+    - name: "SCORED | 18.5.14.1 | PATCH | L1 Ensure Hardened UNC Paths is set to Enabled with Require Mutual Authentication and Require Integrity set for all SYSVOL shares"
+      win_regedit:
+        path: HKLM:\Software\Policies\Microsoft\Windows\Networkprovider\Hardenedpaths
+        name: "\\\\*\\SYSVOL"
+        data: "RequireMutualAuthentication=1, RequireIntegrity=1"
+        type: string
+  when: rule_18_5_14_1
+  tags:
+    - level1
+    - level2
+    - rule_18.5.14.1
+    - patch
 
-# - name: "SCORED | 18.5.19.2.1 | PATCH | L2 Disable IPv6 Ensure TCPIP6 Parameter DisabledComponents is set to 0xff 255"
-#   win_regedit:
-#     path: HKLM:\System\CurrentControlSet\Services\TCPIP6\Parameters
-#     name: DisabledComponents
-#     data: 255
-#     type: dword
-#   when: rule_18_5_19_2_1
-#   tags:
-#     - level2
-#     - rule_18.5.19.2.1
-#     - patch
+- name: "SCORED | 18.5.19.2.1 | PATCH | L2 Disable IPv6 Ensure TCPIP6 Parameter DisabledComponents is set to 0xff 255"
+  win_regedit:
+    path: HKLM:\System\CurrentControlSet\Services\TCPIP6\Parameters
+    name: DisabledComponents
+    data: 255
+    type: dword
+  when: rule_18_5_19_2_1
+  tags:
+    - level2
+    - rule_18.5.19.2.1
+    - patch
 
 # - name: "SCORED | 18.5.20.1 | PATCH | L2 Ensure Configuration of wireless settings using Windows Connect Now is set to Disabled"
 #   block:
