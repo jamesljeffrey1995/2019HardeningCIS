@@ -519,35 +519,35 @@
     - patch
 
 
-- name: "SCORED | 18.5.4.1 | PATCH | L1 Set NetBIOS node type to P-node Ensure NetBT Parameter NodeType is set to 0x2 2 MS Only"
-  win_regedit:
-    path: HKLM:\System\CurrentControlSet\Services\NetBT\Parameters
-    name: NodeType
-    data: 2
-    type: dword
-  when:
-    - rule_18_5_4_1
-    - not ansible_windows_domain_role == "Primary domain controller"
-  tags:
-    - level1
-    - level2
-    - rule_18.5.4.1
-    - patch
+# - name: "SCORED | 18.5.4.1 | PATCH | L1 Set NetBIOS node type to P-node Ensure NetBT Parameter NodeType is set to 0x2 2 MS Only"
+#   win_regedit:
+#     path: HKLM:\System\CurrentControlSet\Services\NetBT\Parameters
+#     name: NodeType
+#     data: 2
+#     type: dword
+#   when:
+#     - rule_18_5_4_1
+#     - not ansible_windows_domain_role == "Primary domain controller"
+#   tags:
+#     - level1
+#     - level2
+#     - rule_18.5.4.1
+#     - patch
 
-- name: "SCORED | 18.5.4.2 | PATCH | L1 Ensure Turn off multicast name resolution is set to Enabled MS Only"
-  win_regedit:
-    path: HKLM:\Software\Policies\Microsoft\Windows NT\DNSClient
-    name: EnableMulticast
-    data: 0
-    type: dword
-  when:
-    - rule_18_5_4_2
-    - not ansible_windows_domain_role == "Primary domain controller"
-  tags:
-    - level1
-    - level2
-    - rule_18.5.4.2
-    - patch
+# - name: "SCORED | 18.5.4.2 | PATCH | L1 Ensure Turn off multicast name resolution is set to Enabled MS Only"
+#   win_regedit:
+#     path: HKLM:\Software\Policies\Microsoft\Windows NT\DNSClient
+#     name: EnableMulticast
+#     data: 0
+#     type: dword
+#   when:
+#     - rule_18_5_4_2
+#     - not ansible_windows_domain_role == "Primary domain controller"
+#   tags:
+#     - level1
+#     - level2
+#     - rule_18.5.4.2
+#     - patch
 
 # - name: "SCORED | 18.5.5.1 | PATCH | L2 Ensure Enable Font Providers is set to Disabled"
 #   win_regedit:
