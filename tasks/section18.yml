@@ -656,44 +656,44 @@
     - rule_18.5.10.2
     - patch
 
-# - name: "SCORED | 18.5.11.2 | PATCH | L1 Ensure Prohibit installation and configuration of Network Bridge on your DNS domain network is set to Enabled"
-#   win_regedit:
-#     path: HKLM:\Software\Policies\Microsoft\Windows\Network Connections
-#     name: NC_AllowNetBridge_NLA
-#     data: 0
-#     type: dword
-#   when: rule_18_5_11_2
-#   tags:
-#     - level1
-#     - level2
-#     - rule_18.5.11.2
-#     - patch
+- name: "SCORED | 18.5.11.2 | PATCH | L1 Ensure Prohibit installation and configuration of Network Bridge on your DNS domain network is set to Enabled"
+  win_regedit:
+    path: HKLM:\Software\Policies\Microsoft\Windows\Network Connections
+    name: NC_AllowNetBridge_NLA
+    data: 0
+    type: dword
+  when: rule_18_5_11_2
+  tags:
+    - level1
+    - level2
+    - rule_18.5.11.2
+    - patch
 
-# - name: "SCORED | 18.5.11.3 | PATCH | L1 Ensure Prohibit use of Internet Connection Sharing on your DNS domain network is set to Enabled"
-#   win_regedit:
-#     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\Network Connections
-#     name: NC_ShowSharedAccessUI
-#     data: 0
-#     type: dword
-#   when: rule_18_5_11_3
-#   tags:
-#     - level1
-#     - level2
-#     - rule_18.5.11.3
-#     - patch
+- name: "SCORED | 18.5.11.3 | PATCH | L1 Ensure Prohibit use of Internet Connection Sharing on your DNS domain network is set to Enabled"
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\Network Connections
+    name: NC_ShowSharedAccessUI
+    data: 0
+    type: dword
+  when: rule_18_5_11_3
+  tags:
+    - level1
+    - level2
+    - rule_18.5.11.3
+    - patch
 
-# - name: "SCORED | 18.5.11.4 | PATCH | L1 Ensure Require domain users to elevate when setting a networks location is set to Enabled"
-#   win_regedit:
-#     path: HKLM:\Software\Policies\Microsoft\Windows\Network Connections
-#     name: NC_StdDomainUserSetLocation
-#     data: 1
-#     type: dword
-#   when: rule_18_5_11_4
-#   tags:
-#     - level1
-#     - level2
-#     - rule_18.5.11.4
-#     - patch
+- name: "SCORED | 18.5.11.4 | PATCH | L1 Ensure Require domain users to elevate when setting a networks location is set to Enabled"
+  win_regedit:
+    path: HKLM:\Software\Policies\Microsoft\Windows\Network Connections
+    name: NC_StdDomainUserSetLocation
+    data: 1
+    type: dword
+  when: rule_18_5_11_4
+  tags:
+    - level1
+    - level2
+    - rule_18.5.11.4
+    - patch
 
 # - name: "SCORED | 18.5.14.1 | PATCH | L1 Ensure Hardened UNC Paths is set to Enabled with Require Mutual Authentication and Require Integrity set for all NETLOGON and SYSVOL shares"
 #   block:
