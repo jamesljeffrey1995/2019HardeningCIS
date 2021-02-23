@@ -1,5 +1,4 @@
 ---
-
 - name: Gather distribution info
   setup:
       gather_subset: distribution,!all,!min
@@ -42,11 +41,12 @@
   tags:
       - section02
 
-# - name: Execute the section 9 tasks
-#   import_tasks: section09.yml
-#   when: section09_patch | bool
-#   tags:
-#       - section09
+- name: Execute the section 9 tasks
+  import_tasks: section09.yml
+  when: section09_patch | bool
+  tags:
+      - section09
+
 
 # - name: Execute the section 17 tasks
 #   import_tasks: section17.yml
