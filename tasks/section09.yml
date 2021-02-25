@@ -251,7 +251,7 @@
   win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile
     name: DefaultOutboundAction
-    data: 0
+    data: 1
     type: dword
   when:
     - rule_9_3_3
