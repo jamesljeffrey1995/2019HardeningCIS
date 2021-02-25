@@ -312,6 +312,7 @@
 
 - name: Firewall rule to allow SMTP on TCP port 445 out
   win_shell: netsh advfirewall firewall add rule name="Open Port 445" dir=out action=allow protocol=TCP localport=445
+  
 
 - name: Firewall rule to allow SMTP on TCP port 139 out
   win_shell: netsh advfirewall firewall add rule name="Open Port 139" dir=out action=allow protocol=TCP localport=139

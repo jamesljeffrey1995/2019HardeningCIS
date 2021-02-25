@@ -675,17 +675,17 @@
 #     - rule_2.3.1.5
 #     - patch
 
-# - name: "SCORED | 2.3.1.6 | PATCH | L1 Configure Accounts Rename guest account"
-#   win_security_policy:
-#     section: System Access
-#     key: NewGuestName
-#     value: BobCooper
-#   when: rule_2_3_1_6
-#   tags:
-#     - level1
-#     - level2
-#     - rule_2.3.1.6
-#     - patch
+- name: "SCORED | 2.3.1.6 | PATCH | L1 Configure Accounts Rename guest account"
+  win_security_policy:
+    section: System Access
+    key: NewGuestName
+    value: BobCooper
+  when: rule_2_3_1_6
+  tags:
+    - level1
+    - level2
+    - rule_2.3.1.6
+    - patch
 
 - name: "SCORED | 2.3.2.1 | PATCH | L1 Ensure Audit Force audit policy subcategory settings Windows Vista or later to override audit policy category settings is set to Enabled"
   win_regedit:
@@ -827,7 +827,7 @@
   win_regedit:
     path: HKLM:\System\Currentcontrolset\Services\Netlogon\Parameters
     name: disablepasswordchange
-    data: 1
+    data: 0
     type: dword
   when:
     - rule_2_3_6_4
@@ -1163,8 +1163,8 @@
   win_regedit:
     path: HKLM:\System\Currentcontrolset\Services\Lanmanserver\Parameters
     name: NullSessionPipes
-    data: ""
-    type: multistring
+    state: absent
+    delete_key: no
   when:
     - rule_2_3_10_6
     - ansible_windows_domain_role == "Primary domain controller"
@@ -1334,7 +1334,7 @@
   win_regedit:
     path: HKLM:\System\CurrentControlSet\Services\LanManServer\Parameters
     name: EnableForcedLogOff
-    data: 1
+    data: 0
     type: dword
   when: rule_2_3_11_6
   tags:
