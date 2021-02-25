@@ -251,7 +251,7 @@
   win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile
     name: DefaultOutboundAction
-    data: 1
+    data: 0
     type: dword
   when:
     - rule_9_3_3
@@ -360,3 +360,7 @@
     - level1-memberserver
     - rule_9.3.10
     - patch
+
+- name: reboot_windows
+  win_reboot:
+      reboot_timeout: 3600
