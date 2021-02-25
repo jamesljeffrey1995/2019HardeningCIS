@@ -275,6 +275,22 @@
     - rule_9.3.4
     - patch
 
+- name: Firewall rule to allow SMTP on TCP port 445 out
+  win_shell: netsh advfirewall firewall add rule name="Open Port 445" dir=out action=allow protocol=TCP localport=445
+  
+
+- name: Firewall rule to allow SMTP on TCP port 139 out
+  win_shell: netsh advfirewall firewall add rule name="Open Port 139" dir=out action=allow protocol=TCP localport=139
+
+- name: Firewall rule to allow SMTP on TCP port 445 in
+  win_shell: netsh advfirewall firewall add rule name="Open Port 445" dir=in action=allow protocol=TCP localport=445
+
+- name: Firewall rule to allow SMTP on TCP port 139 in
+  win_shell: netsh advfirewall firewall add rule name="Open Port 139" dir=in action=allow protocol=TCP localport=139
+
+- name: Firewall rule to allow SMTP on TCP port 5986 in
+  win_shell: netsh advfirewall firewall add rule name="Open Port 5986" dir=in action=allow protocol=TCP localport=5986
+
 - name: "SCORED | 9.3.5 | PATCH | (L1) Ensure 'Windows Firewall: Public: Settings: Apply local firewall rules' is set to 'No'"
   win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile
@@ -291,7 +307,7 @@
     - patch
 
 - name: check 9.3.5
-  win_shell: Get-ItemProperty -path HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile
+  win_shell: netsh -all
 
 
 # - name: "SCORED | 9.3.6 | PATCH | (L1) Ensure 'Windows Firewall: Public: Settings: Apply local connection security rules' is set to 'No'"
