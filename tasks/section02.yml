@@ -1537,7 +1537,3 @@
     - level2
     - rule_2.3.17.8
     - patch
-
-- name: reboot_windows
-  win_reboot:
-      reboot_timeout: 3600
