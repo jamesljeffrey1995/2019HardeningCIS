@@ -279,8 +279,8 @@
   win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile
     name: AllowLocalPolicyMerge
-    data: 1
-    type: dword
+    data: "no"
+    type: "string" 
   when:
     - rule_9_3_5
     - not win_skip_for_test
