@@ -29,6 +29,12 @@
 #   tags:
 #       - prelim_tasks
 
+- name: Execute the section 9 tasks
+  import_tasks: section09.yml
+  when: section09_patch | bool
+  tags:
+      - section09
+
 - name: Execute the section 1 tasks
   import_tasks: section01.yml
   when: section01_patch | bool
@@ -41,11 +47,6 @@
   tags:
       - section02
 
-- name: Execute the section 9 tasks
-  import_tasks: section09.yml
-  when: section09_patch | bool
-  tags:
-      - section09
 
 - name: Execute the section 17 tasks
   import_tasks: section17.yml
