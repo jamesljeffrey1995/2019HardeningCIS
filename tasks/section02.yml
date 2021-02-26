@@ -837,6 +837,10 @@
     - level2
     - rule_2.3.6.4
     - patch
+  
+
+- name: Check 2.3.6.4
+  win_shell : Get-ItemProperty -path HKLM:\System\Currentcontrolset\Services\Netlogon\Parameters
 
 - name: "SCORED | 2.3.6.5 | PATCH | L1 Ensure Domain member Maximum machine account password age is set to 30 or fewer days but not 0"
   win_regedit:
@@ -1172,6 +1176,9 @@
     - rule_2.3.10.6
     - patch
 
+- name: Check 2.3.10.6
+  win_shell : Get-ItemProperty -path HKLM:\System\Currentcontrolset\Services\Lanmanserver\Parameters
+
 - name: "SCORED | 2.3.10.7 | PATCH | L1 Configure Network access Named Pipes that can be accessed anonymously MS only"
   win_regedit:
     path: HKLM:\System\Currentcontrolset\Services\Lanmanserver\Parameters
@@ -1342,6 +1349,9 @@
     - level2
     - rule_2.3.11.6
     - patch
+
+- name: Check 2.3.11.6
+  win_shell : Get-ItemProperty -path HKLM:\System\Currentcontrolset\Services\Lanmanserver\Parameters
 
 - name: "SCORED | 2.3.11.7 | PATCH | L1 Ensure Network security LAN Manager authentication level is set to Send NTLMv2 response only. Refuse LM  NTLM"
   win_regedit:
@@ -1537,7 +1547,3 @@
     - level2
     - rule_2.3.17.8
     - patch
-
-- name: reboot_windows
-  win_reboot:
-      reboot_timeout: 3600
