@@ -686,6 +686,7 @@
       Import-DscResource -ModuleName 'SecurityPolicyDsc'
       Node $NodeName {
         SecurityOption AccountSecurityOptions {
+          Name = 'AccountSecurityOptions'
           Accounts_Rename_guest_account = 'User_Guest'
           }
       }
