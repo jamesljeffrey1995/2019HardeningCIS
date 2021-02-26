@@ -1166,11 +1166,10 @@
   win_regedit:
     path: HKLM:\System\Currentcontrolset\Services\Lanmanserver\Parameters
     name: NullSessionPipes
-    data: ['netlogon', 'samr', 'lsarpc']
+    data: ""
     type: multistring
   when:
     - rule_2_3_10_6
-    - ansible_windows_domain_role == "Primary domain controller"
   tags:
     - rule_2.3.10.6
     - patch
