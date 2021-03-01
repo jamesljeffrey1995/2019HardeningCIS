@@ -4,12 +4,7 @@
     section: System Access
     key: NewGuestName
     value: "jamesjeff"
-
-- name: "check if its worked"
-  win_shell: |
-    Secedit /Export /Areas SecurityPolicy /CFG C:\users\FileName6.Txt
-    cat C:\users\FileName6.Txt    
-    
+  
 - name: "SCORED | 2.2.1 | PATCH | L1 Ensure Access Credential Manager as a trusted caller is set to No One"
   win_user_right:
     name: SeTrustedCredManAccessPrivilege
@@ -1547,8 +1542,3 @@
     - level2
     - rule_2.3.17.8
     - patch
-
-- name: "check if its worked"
-  win_shell: |
-    Secedit /Export /Areas SecurityPolicy /CFG C:\users\FileName7.Txt
-    cat C:\users\FileName7.Txt
