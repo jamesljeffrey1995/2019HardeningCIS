@@ -636,17 +636,17 @@
     - rule_2.3.1.2
     - patch
 
-# - name: "SCORED | 2.3.1.3 | PATCH | L1 Ensure Accounts Guest account status is set to Disabled MS only"
-#   win_security_policy:
-#     section: System Access
-#     key: EnableGuestAccount
-#     value: 0
-#   when: rule_2_3_1_3
-#   tags:
-#     - level1
-#     - level2
-#     - rule_2.3.1.3
-#     - patch
+- name: "SCORED | 2.3.1.3 | PATCH | L1 Ensure Accounts Guest account status is set to Disabled MS only"
+  win_security_policy:
+    section: System Access
+    key: EnableGuestAccount
+    value: 0
+  when: rule_2_3_1_3
+  tags:
+    - level1
+    - level2
+    - rule_2.3.1.3
+    - patch
 
 - name: "SCORED | 2.3.1.4 | PATCH | L1 Ensure Accounts Limit local account use of blank passwords to console logon only is set to Enabled"
   win_regedit:
@@ -1536,19 +1536,8 @@
     - rule_2.3.17.8
     - patch
 
-- name: "SCORED | 2.3.1.6 | PATCH | L1 Configure Accounts Rename guest account"
-  win_shell: |
-    Configuration CIS_WindowsServer2019_v110 {
-      param (
-        [string[]]$NodeName ='localhost'
-        )
-      Import-DscResource -ModuleName 'PSDesiredStateConfiguration'
-      Import-DscResource -ModuleName 'AuditPolicyDsc'
-      Import-DscResource -ModuleName 'SecurityPolicyDsc'
-      Node $NodeName {
-        SecurityOption AccountSecurityOptions {
-          Name = 'AccountSecurityOptions'
-          Accounts_Rename_guest_account = 'User_Guest'
-          }
-      }
-    }
+- name: "2.3.1.6 Configure 'Accounts: Rename guest account'"
+  win_security_policy:
+    section: System Access
+    key: NewGuestName
+    value: Test Guest
