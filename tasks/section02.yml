@@ -677,7 +677,7 @@
 #     - patch
 
 - name: "2.3.1.6 Configure 'Accounts: Rename guest account'"
-  win_security_policy:
+  community.windows.win_security_policy:
     section: System Access
     key: NewGuestName
     value: "jamesjeff"
