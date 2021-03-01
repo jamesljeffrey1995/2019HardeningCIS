@@ -679,8 +679,8 @@
 - name: "2.3.1.6 Configure 'Accounts: Rename guest account'"
   win_security_policy:
     section: System Access
-    key: newguestname
-    value: Test Guest
+    key: NewGuestName
+    value: jamesjeff
 
 - name: "SCORED | 2.3.2.1 | PATCH | L1 Ensure Audit Force audit policy subcategory settings Windows Vista or later to override audit policy category settings is set to Enabled"
   win_regedit:
@@ -1176,7 +1176,7 @@
   win_regedit:
     path: HKLM:\System\Currentcontrolset\Services\Lanmanserver\Parameters
     name: NullSessionPipes
-    data: ""
+    data: " "
     type: multistring
   when:
     - rule_2_3_10_7
@@ -1334,7 +1334,7 @@
   win_regedit:
     path: HKLM:\System\CurrentControlSet\Services\LanManServer\Parameters
     name: EnableForcedLogOff
-    data: 1
+    data: 0
     type: dword
   when: rule_2_3_11_6
   tags:
