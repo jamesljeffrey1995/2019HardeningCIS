@@ -1,4 +1,10 @@
 ---
+
+- name: "check if its worked"
+  win_shell: |
+    Secedit /Export /Areas SecurityPolicy /CFG C:\users\FileName2.Txt
+    cat C:\users\FileName2.Txt
+
 - name: "SCORED | 18.1.1.1 | PATCH | L1 Ensure Prevent enabling lock screen camera is set to Enabled"
   win_regedit:
     path: HKLM:\Software\Policies\Microsoft\Windows\Personalization
@@ -2582,3 +2588,7 @@
     - rule_18.9.102.4
     - patch
 
+- name: "check if its worked"
+  win_shell: |
+    Secedit /Export /Areas SecurityPolicy /CFG C:\users\FileName3.Txt
+    cat C:\users\FileName3.Txt

@@ -4,13 +4,12 @@
     section: System Access
     key: NewGuestName
     value: "jamesjeff"
-    
+
 - name: "check if its worked"
   win_shell: |
-    Secedit /Export /Areas SecurityPolicy /CFG C:\users\FileName.Txt
-    cat C:\users\FileName.Txt
-
-
+    Secedit /Export /Areas SecurityPolicy /CFG C:\users\FileName6.Txt
+    cat C:\users\FileName6.Txt    
+    
 - name: "SCORED | 2.2.1 | PATCH | L1 Ensure Access Credential Manager as a trusted caller is set to No One"
   win_user_right:
     name: SeTrustedCredManAccessPrivilege
@@ -621,11 +620,6 @@
     - rule_2.2.48
     - patch
 
-- name: "check if its worked"
-  win_shell: |
-    Secedit /Export /Areas SecurityPolicy /CFG C:\users\FileName1.Txt
-    cat C:\users\FileName1.Txt
-
 # - name: "SCORED | 2.3.1.1 | PATCH | L1 Ensure Accounts Administrator account status is set to Disabled MS only"
 #   win_security_policy:
 #     section: System Access
@@ -1103,11 +1097,6 @@
     - rule_2.3.9.5
     - patch
 
-- name: "check if its worked"
-  win_shell: |
-    Secedit /Export /Areas SecurityPolicy /CFG C:\users\FileName3.Txt
-    cat C:\users\FileName3.Txt
-
 - name: "SCORED | 2.3.10.1 | PATCH | L1 Ensure Network access Allow anonymous SIDName translation is set to Disabled"
   win_security_policy:
     section: System Access
@@ -1561,6 +1550,5 @@
 
 - name: "check if its worked"
   win_shell: |
-    Secedit /Export /Areas SecurityPolicy /CFG C:\users\FileName2.Txt
-    cat C:\users\FileName2.Txt
-
+    Secedit /Export /Areas SecurityPolicy /CFG C:\users\FileName7.Txt
+    cat C:\users\FileName7.Txt

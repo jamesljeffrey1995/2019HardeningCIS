@@ -1,4 +1,9 @@
 ---
+- name: "check if its worked"
+  win_shell: |
+    Secedit /Export /Areas SecurityPolicy /CFG C:\users\FileName.Txt
+    cat C:\users\FileName.Txt
+
 - name: "SCORED | 17.1.1 | AUDIT | L1 Ensure Audit Credential Validation is set to Success and Failure"
   win_shell: AuditPol /get /subcategory:"Credential Validation" -r | ConvertFrom-Csv | Select-Object -expand "Inclusion Setting"
   register: rule_17_1_1_audit
@@ -872,3 +877,7 @@
     - rule_17.9.5
     - patch
 
+- name: "check if its worked"
+  win_shell: |
+    Secedit /Export /Areas SecurityPolicy /CFG C:\users\FileName1.Txt
+    cat C:\users\FileName1.Txt
