@@ -1164,7 +1164,7 @@
     path: HKLM:\System\Currentcontrolset\Services\Lanmanserver\Parameters
     name: NullSessionPipes
     data: ""
-    type: multistring
+    type: string
   when:
     - rule_2_3_10_6
   tags:
