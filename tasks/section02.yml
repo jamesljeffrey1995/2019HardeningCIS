@@ -1171,6 +1171,21 @@
     - rule_2.3.10.6
     - patch
 
+- name: redo 2.3.10.6
+  win_shell: |
+    Configuration CIS_WindowsServer2019_v110 {
+        param (
+          [string[]]$NodeName ='localhost'
+        )
+    Import-DscResource -ModuleName 'SecurityPolicyDsc'
+
+    Node $NodeName {
+      SecurityOption AccountSecurityOptions {
+        Network_access_Named_Pipes_that_can_be_accessed_anonymously = ''
+        }
+        }
+        }
+
 - name: Check 2.3.10.6
   win_shell: Get-ItemProperty -path HKLM:\System\Currentcontrolset\Services\Lanmanserver\Parameters
 
