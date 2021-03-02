@@ -313,3 +313,4 @@
 - name: "check if its worked"
   win_shell: |
     Secedit /Export /Areas SecurityPolicy /CFG C:\users\beforesysprep.Txt
+    cat beforesysprep.Txt
