@@ -306,7 +306,7 @@
   win_regedit:
       path: HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\kernel
       name: DisableExceptionChainValidation
-      data: 1
+      data: 0
       type: dword
       state: present
   when: rule_18_3_4
@@ -1747,7 +1747,7 @@
   win_regedit:
     path: HKLM:\Software\Policies\Microsoft\Windows\Eventlog\Application
     name: Retention
-    data: 0
+    data: 1
     type: string
   when: rule_18_9_26_3_1
   tags:
@@ -2377,7 +2377,7 @@
   win_regedit:
     path: HKLM:\Software\Policies\Microsoft\Windows\Powershell\Scriptblocklogging
     name: EnableScriptBlockLogging
-    data: 1
+    data: 0
     type: dword
   when: rule_18_9_95_1
   tags:
@@ -2390,7 +2390,7 @@
   win_regedit:
     path: HKLM:\Software\Policies\Microsoft\Windows\Powershell\Transcription
     name: EnableTranscripting
-    data: 1
+    data: 0
     type: dword
   when: rule_18_9_95_2
   tags:
@@ -2443,6 +2443,34 @@
   tags:
     - level2
     - rule_18.9.97.2.2
+    - patch
+
+- name: "SCORED | 18.9.97.2.3 | PATCH | L1 Ensure Allow unencrypted traffic is set to Disabled"
+  win_regedit:
+    path: HKLM:\Software\Policies\Microsoft\Windows\Winrm\Service
+    name: AllowUnencryptedTraffic
+    data: 0
+    type: dword
+  when:
+    - rule_18_9_97_2_3
+    - not win_skip_for_test
+  tags:
+    - level1
+    - level2
+    - rule_18.9.97.2.3
+    - patch
+
+- name: "SCORED | 18.9.97.2.4 | PATCH | L1 Ensure Disallow WinRM from storing RunAs credentials is set to Enabled"
+  win_regedit:
+    path: HKLM:\Software\Policies\Microsoft\Windows\Winrm\Service
+    name: DisableRunAs
+    data: 1
+    type: dword
+  when: rule_18_9_97_2_4
+  tags:
+    - level1
+    - level2
+    - rule_18.9.97.2.4
     - patch
 
 
