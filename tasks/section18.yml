@@ -2581,8 +2581,3 @@
     - level2
     - rule_18.9.102.4
     - patch
-
-- name: "check if its worked"
-  win_shell: |
-    Secedit /Export /Areas SecurityPolicy /CFG C:\users\text2.Txt
-    cat C:\users\text2.Txt
