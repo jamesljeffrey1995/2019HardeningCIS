@@ -1,0 +1,12 @@
+{
+      "type": "ansible",
+      "playbook_file": "./playbook.yaml",
+      "user": "Administrator",
+      "use_proxy": false,
+      "extra_arguments": ["-e", "ansible_winrm_server_cert_validation=ignore", "-vvvv"],
+      "galaxy_file": "./requirements.yml",
+      "galaxy_force_install": true,
+      "timeout": "1h"
+        },
+
+cat C:\\Windows\\Setup\\Scripts\\SetupComplete.cmd

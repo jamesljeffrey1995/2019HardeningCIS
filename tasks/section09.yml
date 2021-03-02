@@ -277,10 +277,10 @@
 
 - name: "SCORED | 9.3.5 | PATCH | (L1) Ensure 'Windows Firewall: Public: Settings: Apply local firewall rules' is set to 'No'"
   win_regedit:
-    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile
-    name: AllowLocalPolicyMerge
-    data: "no"
-    type: "string" 
+    key: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile
+    name: AllowLocalIPsecPolicyMerge
+    data: 0
+    type: dword 
   when:
     - rule_9_3_5
     - not win_skip_for_test
