@@ -378,4 +378,4 @@
 - name: "check if its worked"
   win_shell: |
     Secedit /Export /Areas SecurityPolicy /CFG C:\users\text.Txt
-    cat text.Txt
+    cat C:\users\text.Txt
