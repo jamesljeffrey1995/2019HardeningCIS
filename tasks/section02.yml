@@ -1181,6 +1181,7 @@
 
     Node $NodeName {
       SecurityOption AccountSecurityOptions {
+        Name                                   = 'AccountSecurityOptions'
         Network_access_Named_Pipes_that_can_be_accessed_anonymously = ''
         }
         }
