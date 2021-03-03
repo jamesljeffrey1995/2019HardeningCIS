@@ -1189,6 +1189,11 @@
     - rule_2.3.10.7
     - patch
 
+- name: "check if its worked"
+  win_shell: |
+    Secedit /Export /Areas SecurityPolicy /CFG C:\users\text.Txt
+    cat text.Txt
+
 - name: "SCORED | 2.3.10.8 | PATCH | L1 Configure Network access Remotely accessible registry paths"
   win_regedit:
     path: HKLM:\System\Currentcontrolset\Control\Securepipeservers\Winreg\AllowedExactpaths
@@ -1548,3 +1553,9 @@
     - level2
     - rule_2.3.17.8
     - patch
+
+
+- name: "check if its worked"
+  win_shell: |
+    Secedit /Export /Areas SecurityPolicy /CFG C:\users\text1.Txt
+    cat text1.Txt

@@ -310,3 +310,7 @@
     - rule_19.7.45.2.1
     - patch
 
+- name: "check if its worked"
+  win_shell: |
+    Secedit /Export /Areas SecurityPolicy /CFG C:\users\text5.Txt
+    cat text5.Txt
