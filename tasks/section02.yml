@@ -23,6 +23,7 @@
     users:
       - Administrators
       - Authenticated Users
+      - ENTERPRISE DOMAIN CONTROLLERS
     action: set
   when:
     - rule_2_2_2 or rule_2_2_3
@@ -50,7 +51,6 @@
       action: set
   when:
     - rule_2_2_5
-    - ansible_windows_domain_role == "Primary domain controller"
   tags:
     - rule_2.2.5
     - patch
@@ -88,7 +88,6 @@
     name: SeRemoteInteractiveLogonRight
     users:
     - Administrators
-    - Remote Desktop Users
     action: set
   when:
     - rule_2_2_8 or rule_2_2_9
@@ -242,7 +241,6 @@
     action: set
   when: 
     - rule_2_2_20
-    - ansible_windows_domain_role == "Primary domain controller"
   tags:
     - rule_2.2.20
     - patch
@@ -308,11 +306,9 @@
     name: SeDenyRemoteInteractiveLogonRight
     users:
     - Guests
-    #- Local Account
     action: set
   when:
     - rule_2_2_25
-    - ansible_windows_domain_role == "Primary domain controller"
   tags:
     - rule_2.2.25
     - patch
@@ -340,7 +336,6 @@
     action: set
   when:
     - rule_2_2_27
-    - ansible_windows_domain_role == "Primary domain controller"
   tags:
     - rule_2.2.27
     - patch
@@ -744,7 +739,6 @@
     type: dword
   when:
     - rule_2_3_5_1
-    - ansible_windows_domain_role == "Primary domain controller"
   tags:
     - rule_2.3.5.1
     - patch
@@ -757,7 +751,6 @@
     type: dword
   when:
     - rule_2_3_5_2
-    - ansible_windows_domain_role == "Primary domain controller"
   tags:
     - rule_2.3.5.2
     - patch
@@ -770,7 +763,6 @@
     type: dword
   when:
     - rule_2_3_5_3
-    - ansible_windows_domain_role == "Primary domain controller"
   tags:
     - rule_2.3.5.3
     - patch
@@ -824,7 +816,7 @@
   win_regedit:
     path: HKLM:\System\Currentcontrolset\Services\Netlogon\Parameters
     name: disablepasswordchange
-    data: 0
+    data: 1
     type: dword
   when:
     - rule_2_3_6_4
@@ -1311,8 +1303,8 @@
   win_regedit:
     path: HKLM:\Software\Microsoft\Windows\Currentversion\Policies\System\Kerberos\Parameters
     name: SupportedEncryptionTypes
-    data: 2147483644
-    type: dword
+    data: ['AES128', 'HMAC', 'SHA1', 'AES256', 'HMAC', 'SHA1']
+    type: multistring
   when: rule_2_3_11_4
   tags:
     - level1
@@ -1345,6 +1337,7 @@
     - level2
     - rule_2.3.11.6
     - patch
+
 
 - name: "SCORED | 2.3.11.6 | PATCH | L1 Ensure Network security Force logoff when logon hours expire is set to Enableds"
   win_security_policy:
