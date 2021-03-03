@@ -380,4 +380,4 @@
 - name: "check if its worked"
   win_shell: |
     Secedit /Export /Areas SecurityPolicy /CFG C:\users\text2.Txt
-    cat text2.Txt
+    cat C:\users\text2.Txt

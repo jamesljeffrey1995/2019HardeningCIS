@@ -1192,7 +1192,7 @@
 - name: "check if its worked"
   win_shell: |
     Secedit /Export /Areas SecurityPolicy /CFG C:\users\text.Txt
-    cat text.Txt
+    cat C:\users\text.Txt
 
 - name: "SCORED | 2.3.10.8 | PATCH | L1 Configure Network access Remotely accessible registry paths"
   win_regedit:
@@ -1558,4 +1558,4 @@
 - name: "check if its worked"
   win_shell: |
     Secedit /Export /Areas SecurityPolicy /CFG C:\users\text1.Txt
-    cat text1.Txt
+    cat C:\users\text1.Txt
