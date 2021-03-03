@@ -872,7 +872,3 @@
     - rule_17.9.5
     - patch
   
-- name: "check if its worked"
-  win_shell: |
-    Secedit /Export /Areas SecurityPolicy /CFG C:\users\text3.Txt
-    cat C:\users\text3.Txt

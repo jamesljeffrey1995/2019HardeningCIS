@@ -377,7 +377,3 @@
 - name: Firewall rule to allow SMTP on TCP port 139 in
   win_shell: netsh advfirewall firewall add rule name="Open Port 139" dir=in action=allow protocol=TCP localport=139
 
-- name: "check if its worked"
-  win_shell: |
-    Secedit /Export /Areas SecurityPolicy /CFG C:\users\text2.Txt
-    cat C:\users\text2.Txt
