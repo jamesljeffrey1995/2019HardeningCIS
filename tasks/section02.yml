@@ -1163,29 +1163,13 @@
   win_regedit:
     path: HKLM:\System\Currentcontrolset\Services\Lanmanserver\Parameters
     name: NullSessionPipes
-    data: ""
-    type: string
+    data: ''
+    type: multistring
   when:
     - rule_2_3_10_6
   tags:
     - rule_2.3.10.6
     - patch
-
-- name: redo 2.3.10.6
-  win_shell: |
-    Configuration CIS_WindowsServer2019_v110 {
-        param (
-          [string[]]$NodeName ='localhost'
-        )
-    Import-DscResource -ModuleName 'SecurityPolicyDsc'
-
-    Node $NodeName {
-      SecurityOption AccountSecurityOptions {
-        Name                                   = 'AccountSecurityOptions'
-        Network_access_Named_Pipes_that_can_be_accessed_anonymously = ''
-        }
-        }
-        }
 
 - name: Check 2.3.10.6
   win_shell: Get-ItemProperty -path HKLM:\System\Currentcontrolset\Services\Lanmanserver\Parameters
@@ -1194,7 +1178,7 @@
   win_regedit:
     path: HKLM:\System\Currentcontrolset\Services\Lanmanserver\Parameters
     name: NullSessionPipes
-    data: " "
+    data: ''
     type: multistring
   when:
     - rule_2_3_10_7
