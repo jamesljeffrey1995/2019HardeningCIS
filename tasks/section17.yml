@@ -59,7 +59,6 @@
   when:
     - rule_17_2_1
     - rule_17_2_1_audit is defined
-    - ansible_windows_domain_role == "Primary domain controller"
     - "'Success' not in rule_17_2_1_audit.stdout"
   tags:
     - level1
@@ -200,6 +199,11 @@
     - level2
     - rule_17.2.6
     - patch
+
+- name: "SCORED | 17.2.6 | AUDIT | L1 Ensure Audit User Account Management is set to Success and Failurew"
+  win_audit_policy_system:
+    subcatergory: User Account Management
+    audit_type: success, failure
 
 - name: "SCORED | 17.3.1 | AUDIT | L1 Ensure Audit PNP Activity is set to include Success"
   win_shell: AuditPol /get /subcategory:"Plug and Play Events" -r | ConvertFrom-Csv | Select-Object -expand "Inclusion Setting"
