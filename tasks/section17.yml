@@ -202,7 +202,7 @@
 
 - name: "SCORED | 17.2.6 | AUDIT | L1 Ensure Audit User Account Management is set to Success and Failurew"
   win_audit_policy_system:
-    subcategory: User Account Management
+    category: User Account Management
     audit_type: success, failure
 
 - name: "SCORED | 17.3.1 | AUDIT | L1 Ensure Audit PNP Activity is set to include Success"
