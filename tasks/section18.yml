@@ -317,28 +317,28 @@
     - rule_18.3.4
     - patch
 
-- name: "SCORED | 18.3.5 | AUDIT | L1 Ensure Extended Protection for LDAP Authentication Domain Controllers only is set to Enabled Enabled always recommended DC Only"
-  command: "echo true"
-  register: result
-  changed_when: no
-  ignore_errors: yes
-  when:
-    - rule_18_3_5
-  tags:
-    - level1
-    - level2
-    - rule_18.3.5
-    - audit
+# - name: "SCORED | 18.3.5 | AUDIT | L1 Ensure Extended Protection for LDAP Authentication Domain Controllers only is set to Enabled Enabled always recommended DC Only"
+#   command: "echo true"
+#   register: result
+#   changed_when: no
+#   ignore_errors: yes
+#   when:
+#     - rule_18_3_5
+#   tags:
+#     - level1
+#     - level2
+#     - rule_18.3.5
+#     - audit
 
-- name: "SCORED | 18.3.5 | PATCH | L1 Ensure Extended Protection for LDAP Authentication Domain Controllers only is set to Enabled Enabled always recommended DC Only"
-  command: "echo true"
-  when:
-    - rule_18_3_5
-  tags:
-    - level1
-    - level2
-    - rule_18.3.5
-    - patch
+# - name: "SCORED | 18.3.5 | PATCH | L1 Ensure Extended Protection for LDAP Authentication Domain Controllers only is set to Enabled Enabled always recommended DC Only"
+#   command: "echo true"
+#   when:
+#     - rule_18_3_5
+#   tags:
+#     - level1
+#     - level2
+#     - rule_18.3.5
+#     - patch
 
 - name: "SCORED | 18.3.5 | PATCH | L1 Ensure Extended Protection for LDAP Authentication Domain Controllers only is set to Enabled Enabled always recommended DC Only"
   win_regedit:
