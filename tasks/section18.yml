@@ -270,7 +270,6 @@
     type: dword
     state: present
   when:
-    - is_implemented
     - rule_18_3_2
   tags:
     - level1
@@ -324,7 +323,6 @@
   changed_when: no
   ignore_errors: yes
   when:
-    - is_implemented
     - rule_18_3_5
   tags:
     - level1
@@ -335,12 +333,25 @@
 - name: "SCORED | 18.3.5 | PATCH | L1 Ensure Extended Protection for LDAP Authentication Domain Controllers only is set to Enabled Enabled always recommended DC Only"
   command: "echo true"
   when:
-    - is_implemented
     - rule_18_3_5
   tags:
     - level1
     - level2
     - rule_18.3.5
+    - patch
+
+- name: "SCORED | 18.3.5 | PATCH | L1 Ensure Extended Protection for LDAP Authentication Domain Controllers only is set to Enabled Enabled always recommended DC Only"
+  win_regedit:
+      path: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters
+      state: present
+      value: LdapEnforceChannelBinding
+      data: 2
+      datatype: dword
+  when: rule_18_3_6
+  tags:
+    - level1
+    - level2
+    - rule_18.3.6
     - patch
 
 - name: "SCORED | 18.3.6 | PATCH | L1 Ensure WDigest Authentication is set to Disabled"
@@ -2202,7 +2213,7 @@
 - name: "SCORED | 18.9.77.13.1.1 | PATCH | L1 Ensure Configure Attack Surface Reduction rules is set to Enabled"
   win_regedit:
     path: HKLM:\Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR
-    name: EnableNetworkProtection
+    name: ExploitGuard_ASR_Rules
     data: 1
     type: dword
   when: rule_18_9_77_13_1_1
@@ -2240,7 +2251,7 @@
 - name: "SCORED | 18.9.77.13.3.1 | PATCH | L1 Ensure Prevent users and apps from accessing dangerous websites is set to Enabled Block"
   win_regedit:
     path: HKLM:\Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\Network Protection
-    name: ExploitGuard_ASR_Rules
+    name: EnableNetworkProtection
     data: 1
     type: dword
   when: rule_18_9_77_13_3_1
@@ -2476,7 +2487,7 @@
   win_regedit:
     path: HKLM:\Software\Policies\Microsoft\Windows\Winrm\Service
     name: DisableRunAs
-    data: 0
+    data: 1
     type: dword
   when: rule_18_9_97_2_4
   tags:
