@@ -340,19 +340,19 @@
 #     - rule_18.3.5
 #     - patch
 
-- name: "SCORED | 18.3.5 | PATCH | L1 Ensure Extended Protection for LDAP Authentication Domain Controllers only is set to Enabled Enabled always recommended DC Only"
-  win_regedit:
-    path: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters
-    state: present
-    value: LdapEnforceChannelBinding
-    data: 2
-    datatype: dword
-  when: rule_18_3_6
-  tags:
-    - level1
-    - level2
-    - rule_18.3.6
-    - patch
+# - name: "SCORED | 18.3.5 | PATCH | L1 Ensure Extended Protection for LDAP Authentication Domain Controllers only is set to Enabled Enabled always recommended DC Only"
+#   win_regedit:
+#     path: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters
+#     state: present
+#     value: LdapEnforceChannelBinding
+#     data: 2
+#     datatype: dword
+#   when: rule_18_3_6
+#   tags:
+#     - level1
+#     - level2
+#     - rule_18.3.6
+#     - patch
 
 - name: "SCORED | 18.3.6 | PATCH | L1 Ensure WDigest Authentication is set to Disabled"
   win_regedit:
