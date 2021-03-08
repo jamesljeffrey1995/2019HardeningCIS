@@ -92,7 +92,7 @@
     - level2
     - rule_17.2.5
     - patch
-  
+
 - name: "SCORED | 17.2.6 | AUDIT | L1 Ensure Audit User Account Management is set to Success and Failure"
   win_audit_policy_system:
     subcategory: User Account Management
@@ -107,7 +107,7 @@
 
 - name: "SCORED | 17.3.1 | PATCH | L1 Ensure Audit PNP Activity is set to include Success"
   win_audit_policy_system:
-    subcategory: Plug and Play Events
+    subcategory: PNP Activity
     audit_type: success
   when:
     - rule_17_3_1
@@ -338,7 +338,6 @@
     - rule_17.8.1
     - patch
 
-
 - name: "SCORED | 17.9.1 | PATCH | L1 Ensure Audit IPsec Driver is set to Success and Failure"
   win_audit_policy_system:
     subcategory: IPsec Driver
@@ -350,7 +349,6 @@
     - level2
     - rule_17.9.1
     - patch
-
 
 - name: "SCORED | 17.9.2 | PATCH | L1 Ensure Audit Other System Events is set to Success and Failure"
   win_audit_policy_system:
@@ -388,7 +386,7 @@
 
 - name: "SCORED | 17.9.5 | PATCH | L1 Ensure Audit System Integrity is set to Success and Failure"
   win_audit_policy_system:
-    subcategory: IPsec Driver
+    subcategory: System Integrity
     audit_type: success, failure
   when:
     - rule_17_9_5
