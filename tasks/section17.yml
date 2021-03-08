@@ -107,7 +107,7 @@
 
 - name: "SCORED | 17.3.1 | PATCH | L1 Ensure Audit PNP Activity is set to include Success"
   win_audit_policy_system:
-    subcategory: PNP Activity
+    subcategory: Plug and Play Events
     audit_type: success
   when:
     - rule_17_3_1
