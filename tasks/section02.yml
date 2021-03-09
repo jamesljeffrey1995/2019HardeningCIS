@@ -4,7 +4,7 @@
     section: System Access
     key: NewGuestName
     value: "jamesjeff"
-  
+
 - name: "SCORED | 2.2.1 | PATCH | L1 Ensure Access Credential Manager as a trusted caller is set to No One"
   win_user_right:
     name: SeTrustedCredManAccessPrivilege
@@ -46,9 +46,9 @@
 
 - name: "SCORED | 2.2.5 | PATCH | L1 Ensure Add workstations to domain is set to Administrators DC only"
   win_user_right:
-      name: SeMachineAccountPrivilege
-      users: Administrators
-      action: set
+    name: SeMachineAccountPrivilege
+    users: Administrators
+    action: set
   when:
     - rule_2_2_5
   tags:
@@ -59,9 +59,9 @@
   win_user_right:
     name: SeIncreaseQuotaPrivilege
     users:
-    - Administrators
-    - Local Service
-    - Network Service
+      - Administrators
+      - Local Service
+      - Network Service
     action: set
   when: rule_2_2_6
   tags:
@@ -74,7 +74,7 @@
   win_user_right:
     name: SeInteractiveLogonRight
     users:
-    - Administrators
+      - Administrators
     action: set
   when: rule_2_2_7
   tags:
@@ -87,7 +87,7 @@
   win_user_right:
     name: SeRemoteInteractiveLogonRight
     users:
-    - Administrators
+      - Administrators
     action: set
   when:
     - rule_2_2_8 or rule_2_2_9
@@ -100,7 +100,7 @@
   win_user_right:
     name: SeBackupPrivilege
     users:
-    - Administrators
+      - Administrators
     action: set
   when: rule_2_2_10
   tags:
@@ -113,8 +113,8 @@
   win_user_right:
     name: SeSystemTimePrivilege
     users:
-    - Administrators
-    - Local Service
+      - Administrators
+      - Local Service
     action: set
   when: rule_2_2_11
   tags:
@@ -127,8 +127,8 @@
   win_user_right:
     name: SeTimeZonePrivilege
     users:
-    - Administrators
-    - Local Service
+      - Administrators
+      - Local Service
     action: set
   when: rule_2_2_12
   tags:
@@ -141,7 +141,7 @@
   win_user_right:
     name: SeCreatePagefilePrivilege
     users:
-    - Administrators
+      - Administrators
     action: set
   when: rule_2_2_13
   tags:
@@ -166,10 +166,10 @@
   win_user_right:
     name: SeCreateGlobalPrivilege
     users:
-    - Administrators
-    - Local Service
-    - Network Service
-    - Service
+      - Administrators
+      - Local Service
+      - Network Service
+      - Service
     action: set
   when: rule_2_2_15
   tags:
@@ -194,7 +194,7 @@
   win_user_right:
     name: SeCreateSymbolicLinkPrivilege
     users:
-    - Administrators
+      - Administrators
     action: set
   when:
     - rule_2_2_17
@@ -207,8 +207,8 @@
   win_user_right:
     name: SeCreateSymbolicLinkPrivilege
     users:
-    - Administrators
-    - NT VIRTUAL MACHINE\Virtual Machines
+      - Administrators
+      - NT VIRTUAL MACHINE\Virtual Machines
     action: set
   when:
     - rule_2_2_18
@@ -223,7 +223,7 @@
   win_user_right:
     name: SeDebugPrivilege
     users:
-    - Administrators
+      - Administrators
     action: set
   when: rule_2_2_19
   tags:
@@ -231,15 +231,14 @@
     - level2
     - rule_2.2.19
     - patch
-
-     #Limiting hardening to only include the Guests group, since Local Account access will still be needed for non-domain-joined nodes
+      #Limiting hardening to only include the Guests group, since Local Account access will still be needed for non-domain-joined nodes
 - name: "SCORED | 2.2.20 | PATCH | L1 Ensure Deny access to this computer from the network to include Guests DC only"
   win_user_right:
     name: SeDenyNetworkLogonRight
     users:
-    - Guests
+      - Guests
     action: set
-  when: 
+  when:
     - rule_2_2_20
   tags:
     - rule_2.2.20
@@ -249,11 +248,11 @@
   win_user_right:
     name: SeDenyNetworkLogonRight
     users:
-    - Guests
+      - Guests
     #- Local Account
     #- Administrators
     action: set
-  when: 
+  when:
     - rule_2_2_21
     - ansible_windows_domain_member
   tags:
@@ -266,7 +265,7 @@
   win_user_right:
     name: SeDenyBatchLogonRight
     users:
-    - Guests
+      - Guests
     action: set
   when: rule_2_2_22
   tags:
@@ -279,7 +278,7 @@
   win_user_right:
     name: SeDenyServiceLogonRight
     users:
-    - Guests
+      - Guests
     action: set
   when: rule_2_2_23
   tags:
@@ -290,10 +289,10 @@
 
 - name: "SCORED | 2.2.24 | PATCH | L1 Ensure Deny log on locally to include Guests"
   win_user_right:
-      name: SeDenyInteractiveLogonRight
-      users:
+    name: SeDenyInteractiveLogonRight
+    users:
       - Guests
-      action: set
+    action: set
   when: rule_2_2_24
   tags:
     - level1
@@ -305,7 +304,7 @@
   win_user_right:
     name: SeDenyRemoteInteractiveLogonRight
     users:
-    - Guests
+      - Guests
     action: set
   when:
     - rule_2_2_25
@@ -317,7 +316,7 @@
   win_user_right:
     name: SeDenyRemoteInteractiveLogonRight
     users:
-    - Guests
+      - Guests
     #- Local Account
     action: set
   when:
@@ -356,10 +355,10 @@
 
 - name: "SCORED | 2.2.29 | PATCH | L1 Ensure Force shutdown from a remote system is set to Administrators"
   win_user_right:
-      name: SeRemoteShutdownPrivilege
-      users:
+    name: SeRemoteShutdownPrivilege
+    users:
       - Administrators
-      action: set
+    action: set
   when: rule_2_2_29
   tags:
     - level1
@@ -371,8 +370,8 @@
   win_user_right:
     name: SeAuditPrivilege
     users:
-    - Local Service
-    - Network Service
+      - Local Service
+      - Network Service
     action: set
   when: rule_2_2_30
   tags:
@@ -385,10 +384,10 @@
   win_user_right:
     name: SeImpersonatePrivilege
     users:
-    - Administrators
-    - Local Service
-    - Network Service
-    - Service
+      - Administrators
+      - Local Service
+      - Network Service
+      - Service
     action: set
   when:
     - rule_2_2_31
@@ -401,11 +400,11 @@
   win_user_right:
     name: SeImpersonatePrivilege
     users:
-    - Administrators
-    - IIS_IUSRS
-    - Local Service
-    - Network Service
-    - Service
+      - Administrators
+      - IIS_IUSRS
+      - Local Service
+      - Network Service
+      - Service
     action: set
   when:
     - rule_2_2_32
@@ -420,8 +419,8 @@
   win_user_right:
     name: SeIncreaseBasePriorityPrivilege
     users:
-    - Administrators
-    - Window Manager\Window Manager Group
+      - Administrators
+      - Window Manager\Window Manager Group
     action: set
   when: rule_2_2_33
   tags:
@@ -434,7 +433,7 @@
   win_user_right:
     name: SeLoadDriverPrivilege
     users:
-    - Administrators
+      - Administrators
     action: set
   when: rule_2_2_34
   tags:
@@ -471,7 +470,7 @@
   win_user_right:
     name: SeSecurityPrivilege
     users:
-    - Administrators
+      - Administrators
     action: set
   when:
     - rule_2_2_37 or rule_2_2_38
@@ -496,7 +495,7 @@
   win_user_right:
     name: SeSystemEnvironmentPrivilege
     users:
-    - Administrators
+      - Administrators
     action: set
   when: rule_2_2_40
   tags:
@@ -509,7 +508,7 @@
   win_user_right:
     name: SeManageVolumePrivilege
     users:
-    - Administrators
+      - Administrators
     action: set
   when: rule_2_2_41
   tags:
@@ -522,7 +521,7 @@
   win_user_right:
     name: SeProfileSingleProcessPrivilege
     users:
-    - Administrators
+      - Administrators
     action: set
   when: rule_2_2_42
   tags:
@@ -535,8 +534,8 @@
   win_user_right:
     name: SeSystemProfilePrivilege
     users:
-    - Administrators
-    - NT SERVICE\WdiServiceHost
+      - Administrators
+      - NT SERVICE\WdiServiceHost
     action: set
   when: rule_2_2_43
   tags:
@@ -549,8 +548,8 @@
   win_user_right:
     name: SeAssignPrimaryTokenPrivilege
     users:
-    - LOCAL SERVICE
-    - NETWORK SERVICE
+      - LOCAL SERVICE
+      - NETWORK SERVICE
     action: set
   when: rule_2_2_44
   tags:
@@ -563,7 +562,7 @@
   win_user_right:
     name: SeRestorePrivilege
     users:
-    - Administrators
+      - Administrators
     action: set
   when: rule_2_2_45
   tags:
@@ -576,7 +575,7 @@
   win_user_right:
     name: SeShutdownPrivilege
     users:
-    - Administrators
+      - Administrators
     action: set
   when: rule_2_2_46
   tags:
@@ -601,7 +600,7 @@
   win_user_right:
     name: SeTakeOwnershipPrivilege
     users:
-    - Administrators
+      - Administrators
     action: set
   when: rule_2_2_48
   tags:
@@ -636,7 +635,6 @@
     - level2
     - rule_2.3.1.2
     - patch
-
 
 - name: "SCORED | 2.3.1.3 | PATCH | L1 Ensure Accounts Guest account status is set to Disabled MS only"
   win_security_policy:
@@ -676,8 +674,6 @@
 #     - level2
 #     - rule_2.3.1.5
 #     - patch
-
-
 
 - name: "SCORED | 2.3.2.1 | PATCH | L1 Ensure Audit Force audit policy subcategory settings Windows Vista or later to override audit policy category settings is set to Enabled"
   win_regedit:
@@ -1155,7 +1151,7 @@
   win_regedit:
     path: HKLM:\System\Currentcontrolset\Services\Lanmanserver\Parameters
     name: NullSessionPipes
-    data: ['LSARPC', 'NETLOGON', 'SAMR', 'BROWSER']
+    data: ["LSARPC", "NETLOGON", "SAMR", "BROWSER"]
     type: multistring
   when:
     - rule_2_3_10_6
@@ -1170,7 +1166,7 @@
   win_regedit:
     path: HKLM:\System\Currentcontrolset\Services\Lanmanserver\Parameters
     name: NullSessionPipes
-    data: ''
+    data: ""
     type: multistring
   when:
     - rule_2_3_10_7
@@ -1181,12 +1177,16 @@
     - rule_2.3.10.7
     - patch
 
-
 - name: "SCORED | 2.3.10.8 | PATCH | L1 Configure Network access Remotely accessible registry paths"
   win_regedit:
     path: HKLM:\System\Currentcontrolset\Control\Securepipeservers\Winreg\AllowedExactpaths
     name: "Machine"
-    data: ['System\CurrentControlSet\Control\ProductOptions', 'System\CurrentControlSet\Control\Server Applications', 'Software\Microsoft\Windows NT\CurrentVersion']
+    data:
+      [
+        'System\CurrentControlSet\Control\ProductOptions',
+        'System\CurrentControlSet\Control\Server Applications',
+        'Software\Microsoft\Windows NT\CurrentVersion',
+      ]
     type: multistring
   when: rule_2_3_10_8
   tags:
@@ -1199,7 +1199,21 @@
   win_regedit:
     path: HKLM:\System\Currentcontrolset\Control\Securepipeservers\Winreg\Allowedpaths
     name: "Machine"
-    data: ['System\CurrentControlSet\Control\Print\Printers', 'System\CurrentControlSet\Services\Eventlog', 'Software\Microsoft\OLAP Server', 'Software\Microsoft\Windows NT\CurrentVersion\Print', 'Software\Microsoft\Windows NT\CurrentVersion\Windows', 'System\CurrentControlSet\Control\ContentIndex', 'System\CurrentControlSet\Control\Terminal Server', 'System\CurrentControlSet\Control\Terminal Server\UserConfig', 'System\CurrentControlSet\Control\Terminal Server\DefaultUserConfiguration', 'Software\Microsoft\Windows NT\CurrentVersion\Perflib', 'System\CurrentControlSet\Services\WINS', 'System\CurrentControlSet\Services\CertSvc']
+    data:
+      [
+        'System\CurrentControlSet\Control\Print\Printers',
+        'System\CurrentControlSet\Services\Eventlog',
+        'Software\Microsoft\OLAP Server',
+        'Software\Microsoft\Windows NT\CurrentVersion\Print',
+        'Software\Microsoft\Windows NT\CurrentVersion\Windows',
+        'System\CurrentControlSet\Control\ContentIndex',
+        'System\CurrentControlSet\Control\Terminal Server',
+        'System\CurrentControlSet\Control\Terminal Server\UserConfig',
+        'System\CurrentControlSet\Control\Terminal Server\DefaultUserConfiguration',
+        'Software\Microsoft\Windows NT\CurrentVersion\Perflib',
+        'System\CurrentControlSet\Services\WINS',
+        'System\CurrentControlSet\Services\CertSvc',
+      ]
     type: multistring
   when: rule_2_3_10_9
   tags:
@@ -1303,7 +1317,7 @@
   win_regedit:
     path: HKLM:\Software\Microsoft\Windows\Currentversion\Policies\System\Kerberos\Parameters
     name: SupportedEncryptionTypes
-    data: ['AES128', 'HMAC', 'SHA1', 'AES256', 'HMAC', 'SHA1']
+    data: ["AES128_HMAC_SHA1", "AES256_HMAC_SHA1"]
     type: multistring
   when: rule_2_3_11_4
   tags:
@@ -1337,7 +1351,6 @@
     - level2
     - rule_2.3.11.6
     - patch
-
 
 - name: "SCORED | 2.3.11.6 | PATCH | L1 Ensure Network security Force logoff when logon hours expire is set to Enableds"
   win_security_policy:
@@ -1542,5 +1555,3 @@
     - level2
     - rule_2.3.17.8
     - patch
-
-
